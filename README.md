@@ -1,47 +1,55 @@
 # Telecom Subscription Management System
 
-A full-stack web application for managing telecom subscriptions with separate admin and user interfaces.
+A complete full-stack application for managing telecom subscriptions with user authentication, admin dashboard, and subscription management features.
 
-## Project Structure
+## 🚀 Features
 
-```
-hackathonlumen/
-├── backend/                 # Flask backend
-│   ├── app.py              # Main Flask application
-│   ├── config.py           # Configuration settings
-│   ├── db.py               # Database configuration
-│   ├── models/             # SQLAlchemy models
-│   ├── routes/             # API routes
-│   ├── services/           # Business logic services
-│   └── utils/              # Utility functions
-├── frontend/               # React frontend
-│   ├── src/
-│   │   ├── pages/          # React pages
-│   │   ├── components/     # Reusable components
-│   │   └── utils/          # API utilities
-│   └── public/             # Static files
-└── README.md               # This file
-```
+### Backend (Flask + MySQL)
+- **User Authentication** - Login/Signup with password hashing
+- **Admin Dashboard** - Complete admin management interface
+- **User Dashboard** - User subscription management
+- **Database Models** - 7 comprehensive tables for complete data management
+- **RESTful API** - Clean API endpoints for all operations
+- **Audit Logging** - Complete activity tracking and logging
+- **CORS Support** - Cross-origin resource sharing enabled
 
-## Features
+### Frontend (React + Tailwind CSS)
+- **Modern UI** - Clean, responsive design with Tailwind CSS
+- **User Authentication** - Login and signup forms
+- **Dashboard Navigation** - Intuitive navigation between features
+- **Landing Pages** - Dedicated pages for all user features
+- **Responsive Design** - Works on desktop and mobile devices
 
-### ✅ Implemented
-- User authentication (Admin/User roles)
-- User registration
-- Role-based navigation
-- Database initialization with demo admin user
-- Responsive UI with Tailwind CSS
-- Complete authentication flow
+### Database Schema
+- **Users** - User accounts with role-based access
+- **Plans** - Subscription plans with pricing and quotas
+- **Subscriptions** - User subscription records
+- **Usage** - Data usage tracking
+- **Audit Logs** - Activity logging and tracking
+- **Discounts** - Promotional offers and discount codes
+- **Alerts** - User notifications and alerts
 
-### 🚧 Placeholder (Ready for Development)
-- Plan management
-- Subscription management
-- Usage tracking
-- Discount management
-- Analytics dashboard
-- Billing system
+## 🛠️ Tech Stack
 
-## Quick Start
+### Backend
+- **Flask** - Python web framework
+- **SQLAlchemy** - ORM for database operations
+- **MySQL** - Database management system
+- **PyMySQL** - MySQL database connector
+- **Werkzeug** - Password hashing and security
+
+### Frontend
+- **React** - JavaScript library for building user interfaces
+- **React Router** - Client-side routing
+- **Tailwind CSS** - Utility-first CSS framework
+- **Axios** - HTTP client for API calls
+
+## 📦 Installation
+
+### Prerequisites
+- Python 3.7+
+- Node.js 14+
+- MySQL 5.7+
 
 ### Backend Setup
 ```bash
@@ -57,69 +65,126 @@ npm install
 npm start
 ```
 
-### Database Setup
-1. Install MySQL
-2. Create database: `telecom_subscription_db`
-3. Update database URL in `backend/config.py` if needed
+## 🗄️ Database Configuration
 
-## Demo Credentials
+Update the database connection in `backend/config.py`:
+```python
+SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://username:password@localhost/database_name'
+```
 
-- **Admin**: admin@example.com / admin123
-- **User**: Register through the signup page
+## 🚀 Running the Application
 
-## Tech Stack
+1. **Start Backend** (Port 5001):
+   ```bash
+   cd backend
+   python app.py
+   ```
 
-### Backend
-- Flask
-- SQLAlchemy
-- MySQL
-- Flask-CORS
+2. **Start Frontend** (Port 3000):
+   ```bash
+   cd frontend
+   npm start
+   ```
 
-### Frontend
-- React 18
-- React Router DOM
-- Tailwind CSS
-- Axios
+3. **Access the Application**:
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:5001
 
-## API Endpoints
+## 📁 Project Structure
+
+```
+├── backend/
+│   ├── models/          # Database models
+│   ├── routes/          # API routes
+│   ├── services/        # Business logic
+│   ├── utils/           # Utility functions
+│   ├── app.py           # Flask application
+│   └── requirements.txt # Python dependencies
+├── frontend/
+│   ├── src/
+│   │   ├── pages/       # React components
+│   │   ├── utils/       # Utility functions
+│   │   └── App.js       # Main React component
+│   └── package.json     # Node.js dependencies
+└── README.md
+```
+
+## 🔐 Default Credentials
 
 ### Admin
+- Email: `admin@example.com`
+- Password: `admin123`
+
+### Demo User
+- Email: `user@example.com`
+- Password: `user123`
+
+## 📊 API Endpoints
+
+### Authentication
+- `POST /user/login` - User login
+- `POST /user/signup` - User registration
 - `POST /admin/login` - Admin login
+
+### User Routes
+- `GET /user/dashboard` - User dashboard
+- `GET /user/plans-available` - Available plans
+- `GET /user/plan-recommendations` - Plan recommendations
+- `GET /user/my-plan` - Current plan
+- `GET /user/alerts` - User alerts
+- `GET /user/discounts` - Available discounts
+
+### Admin Routes
 - `GET /admin/dashboard` - Admin dashboard
 - `GET /admin/plans` - Manage plans
 - `GET /admin/discounts` - Manage discounts
 - `GET /admin/users` - Manage users
 - `GET /admin/analytics` - Analytics
 
-### User
-- `POST /user/signup` - User registration
-- `POST /user/login` - User login
-- `GET /user/dashboard` - User dashboard
-- `GET /user/subscriptions` - My subscriptions
-- `GET /user/recommendations` - Plan recommendations
-- `GET /user/usage` - Usage history
-- `GET /user/billing` - Billing
+## 🎯 Features Overview
 
-## Database Schema
+### User Features
+- **Plans Available** - Browse all subscription plans
+- **Plan Recommendations** - Get personalized suggestions
+- **My Plan** - View current active subscription
+- **Alerts** - Important notifications
+- **Discounts** - Available offers and promotions
 
-The application includes the following tables:
-- **users** - User accounts and roles
-- **plans** - Subscription plans
-- **subscriptions** - User subscriptions
-- **usage** - Data usage records
-- **discounts** - Promotional discounts
-- **audit_logs** - System audit trail
-- **alerts** - User notifications
+### Admin Features
+- **Dashboard** - Overview of system metrics
+- **Plan Management** - Create and manage subscription plans
+- **Discount Management** - Manage promotional offers
+- **User Management** - View and manage users
+- **Analytics** - System usage analytics
 
-## Development Status
+## 🔧 Development
 
-This is a complete scaffold with working authentication. All other features are implemented as placeholders ready for development.
+### Database Migrations
+The application uses SQLAlchemy's `create_all()` method to create tables. For production, consider using Flask-Migrate for proper database migrations.
 
-## Next Steps
+### Environment Variables
+Create a `.env` file in the backend directory:
+```
+DATABASE_URL=mysql+pymysql://username:password@localhost/database_name
+SECRET_KEY=your-secret-key-here
+```
 
-1. Implement plan management functionality
-2. Add subscription management features
-3. Build usage tracking system
-4. Create analytics dashboard
-5. Add billing and payment processing
-6. Implement notification system
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## 📞 Support
+
+For support and questions, please open an issue in the repository.
+
+---
+
+**Note**: This is a demo application for educational purposes. For production use, ensure proper security measures, environment configuration, and database optimization.
